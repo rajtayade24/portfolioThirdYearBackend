@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { Pool } from "pg";
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -16,7 +19,7 @@ const pool = new Pool({
 
 pool
   .query("SELECT NOW()")
-  .then(() => console.log("Database connected"))
-  .catch((err) => console.error("Database connection failed:", err));
+  .then(() => console.log("✅ Database connected"))
+  .catch((err) => console.error("❌ Database connection failed:", err));
 
 export default pool;
